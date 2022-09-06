@@ -34,6 +34,10 @@ export const userPost = async (req = request, res) => {
   });
 };
 
+export const registerUser = (req = request, res = response) => {
+  const data = req.body;
+};
+
 export const userPatch = (req, res) => {
   res.json({
     message: "patch user",
@@ -53,8 +57,7 @@ export const userPut = async (req = request, res) => {
   await user.save();
 
   res.json({
-    message: "Put user",
-    ...resto,
+    message: "the user has been updated",
   });
 };
 

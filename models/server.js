@@ -6,7 +6,8 @@ import connectDB from "../databases/config.js";
 import routesCategories from "../routes/category.js";
 import routesProducts from "../routes/products.js";
 import routesSearchTerm from "../routes/search.js";
-import routesUploads from "../routes/uploads.js";
+import routesOrder from "../routes/order.js";
+
 class Server {
   constructor() {
     this.app = express();
@@ -18,6 +19,7 @@ class Server {
       category: "/api/categories",
       products: "/api/products",
       search: "/api/search",
+      order: "/api/orders",
     };
 
     // conectar db
@@ -47,7 +49,7 @@ class Server {
     this.app.use(this.paths.user, routesUser);
     this.app.use(this.paths.category, routesCategories);
     this.app.use(this.paths.products, routesProducts);
-    this.app.use(this.paths.search, routesSearchTerm);
+    this.app.use(this.paths.order, routesOrder);
   }
 
   listen() {

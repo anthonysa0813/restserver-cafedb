@@ -16,7 +16,7 @@ export const getProductById = async (req = request, res = response) => {
 };
 
 export const postProduct = async (req = request, res = response) => {
-  const { name, price, category } = req.body;
+  const { name, price, category, image } = req.body;
   const { _id } = req.user;
 
   const data = {
@@ -24,6 +24,7 @@ export const postProduct = async (req = request, res = response) => {
     name,
     price,
     category,
+    image,
   };
   const product = await Product(data);
 

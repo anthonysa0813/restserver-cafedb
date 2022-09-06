@@ -43,3 +43,26 @@ export const authPost = async (req, res = response) => {
     });
   }
 };
+
+export const signupUser = async (req = request, res = response) => {
+  const { email, password } = req.body;
+  const data = {
+    name: "No name",
+    email,
+    password,
+    role: "ADMIN_ROLE",
+    status: true,
+  };
+  const user = await new User(data);
+
+  // hashear el password
+  const salt = await bcryptjs.genSaltSync();
+  user.password = await bcryptjs.hashSync(password, salt);
+
+  await user.save();
+
+  res.json({
+    message: "signup",
+    user,
+  });
+};

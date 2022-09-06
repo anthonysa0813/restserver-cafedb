@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  registerUser,
   userDelete,
   userGet,
   userPatch,
@@ -32,6 +33,7 @@ router.post(
   ],
   userPost
 );
+
 router.put(
   "/:id",
   [
@@ -43,7 +45,9 @@ router.put(
   ],
   userPut
 );
-router.patch("/", userPatch);
+
+// register
+// router.post("/", registerUser);
 
 router.delete(
   "/:id",

@@ -1,5 +1,6 @@
 import { request, response } from "express";
 import Category from "../models/category.js";
+import Product from "../models/products.js";
 
 // obtener categorias - paginado - total -  populate
 export const getCategories = async (req = request, res = response) => {
@@ -20,6 +21,16 @@ export const getCategoryById = async (req = request, res = response) => {
   const { id } = req.params;
   const category = await Category.findById(id);
   return res.status(201).json(category);
+};
+
+// obtener todos los productso por categoria
+export const getProductsByCategory = async (req = request, res = response) => {
+  const { id } = req.params;
+
+  const products = await Product.find({ category: id });
+
+  console.log(products);
+  res.json(products);
 };
 
 export const createCategory = async (req = request, res = response) => {

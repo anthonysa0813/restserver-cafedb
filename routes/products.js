@@ -35,6 +35,7 @@ router.post(
     validateJWT,
     check("name", "the name of the product is required").not().isEmpty(),
     check("price", "the price of the product is required").isNumeric(),
+    check("image", "the image of the product is required").isString(),
     validationField,
   ],
   postProduct

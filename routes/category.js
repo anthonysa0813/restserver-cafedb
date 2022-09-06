@@ -6,6 +6,7 @@ import {
   getCategoryById,
   updateCategory,
   deleteCategory,
+  getProductsByCategory,
 } from "../controllers/category.js";
 import { isValidId } from "../helpers/isValidId.js";
 import { validateJWT } from "../helpers/validate-jwt.js";
@@ -26,6 +27,18 @@ router.get(
     validationField,
   ],
   getCategoryById
+);
+
+// obtener todos los productos por categoria
+router.get(
+  "/products/:id",
+  [
+    validateJWT,
+    check("id", "the id is incorrect or not exist").isMongoId(),
+    check("id", "EL id is incorrecto").custom((id) => isValidId(id)),
+    validationField,
+  ],
+  getProductsByCategory
 );
 
 // crear una categoria con cualquier token válido
