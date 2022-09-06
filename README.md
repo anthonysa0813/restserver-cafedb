@@ -209,3 +209,5 @@ export const isAdminRole = (req, res = response, next) => {
   next();
 };
 ```
+
+# Categorias y Productos
