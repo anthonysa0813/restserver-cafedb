@@ -5,7 +5,8 @@ import routesAuth from "../routes/auth.js";
 import connectDB from "../databases/config.js";
 import routesCategories from "../routes/category.js";
 import routesProducts from "../routes/products.js";
-import routesSearchTerm from "../routes/search.js"
+import routesSearchTerm from "../routes/search.js";
+import routesUploads from "../routes/uploads.js";
 class Server {
   constructor() {
     this.app = express();
